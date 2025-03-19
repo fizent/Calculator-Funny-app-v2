@@ -1,0 +1,274 @@
+:root {
+  --blue-dark: #02023f;   /* آبی پرنگ */
+  --black: #000000;       /* مشکی */
+  --midnight-blue: #191970; /* آبی شب */
+  --dark-blue: #001f3d;   /* آبی تیره */
+  --indigo: #4B0082;      /* نیل */
+  --dark-violet: #9400d3;  /* بنفش تیره */
+  --dark-purple: #800080;   /* بنفش تیره */
+  --dark-slate-blue: #483d8b; /* آبی سنگی تیره */
+  --steel-blue: #4682b4;    /* آبی فولادی */
+  --charcoal: #36454f;      /* زغالی */
+  --gunmetal: #2a3439;      /* فلزی تیر‌ه */
+  --slate-gray: #708090;    /* خاکی آبی */
+}
+
+body {
+  background-color: var(--blue-dark);
+  direction: rtl;
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.btn-div {
+  display: none;
+}
+
+.calculator-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.button {
+  margin: 10px;
+  background-color: var(--midnight-blue);;
+  color: white;
+  font-size: 24px;
+  border: none;
+  padding: 20px 5px 10px 5px;  /* سایز بزرگتر برای دکمه‌ها */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex: 1 0 22%;  /* باعث می‌شود که دکمه‌ها به صورت شناور در یک خط قرار گیرند */
+  min-width: 60px;  /* حداقل عرض دکمه‌ها */
+  border-radius: 30px;
+}
+
+.display {
+  color: white;
+  font-size: 40px;
+  padding-bottom: 30px;
+  margin-right: 30px;
+
+}
+
+.Link {
+  background-color: var(--steel-blue);
+  text-decoration: none;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.message {
+  color: var(--steel-blue);
+  font-size: 25px;
+  text-wrap: wrap;
+}
+
+
+.displayA {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+/* افکت‌های هاور و فعال */
+.button:hover {
+  background-color: var(--steel-blue);
+}
+
+.button:active {
+  background-color: var(--midnight-blue);
+}
+
+/* استایل‌های دکمه‌های عملگر */
+.operator {
+  background-color: #00aaff;
+}
+
+.operator:hover {
+  background-color: #0099cc;
+}
+
+
+.equals {
+  background-color: #ff8c00;
+  grid-column: span 2;  
+}
+
+.equals:hover {
+  background-color: #e07b00;
+}
+
+/* دکمه AC */
+.clear {
+  background-color: #ff4444;
+  grid-column: span 4;  
+}
+
+.clear:hover {
+  background-color: #e03333;
+}
+
+.div-setting {
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  
+}
+
+
+.container-about {
+  position: absolute;
+  top: 30%;
+  right: 10px;
+}
+
+.AboutText {
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+.color-white {
+  color: white;
+}
+
+
+
+@media (max-width: 726px) {
+  .btn-div {
+    display: block;
+    position: fixed;
+    top: 0;
+    margin: 10px;
+  }
+
+  .menu_mobile {
+    background-color: var(--steel-blue);
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+
+  }
+  .div-logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .wid-logo {
+    width: 200px;
+  }
+  .wid-btn {
+    width: 30px;
+  }
+  .calculator-buttons {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+
+  }
+
+  .menu_mobile {
+    display: block;
+    z-index: 400;
+    top: 30px;
+
+  }
+
+  .clear {
+    grid-column: span 1;
+  }
+  .equals {
+    grid-column: span 1;
+    grid-row: span 2;
+    grid-column-end:5;
+  }
+  
+  .exponentiation {
+    grid-column: span 1;
+    grid-row: span 5;
+    grid-column-start: 3;
+  }
+
+
+  .sider {
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    z-index: 999;
+    background-color: white;
+    width: 50%;
+    background-color: rgba(0, 0, 58, 0.637);
+    border-left: 3px solid white;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+
+
+  }
+  .sider.active {
+    transform: translateX(0);
+  }
+
+  .sider.hidden {
+    transform: translateX(100%);
+  }
+  .text-dashbord {
+    margin-top:100px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .color-text-dashbord {
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 25px;
+
+  }
+
+
+  a {
+    text-decoration: none;
+    color: white;
+
+  }
+
+
+
+  #myket {
+    width: 150px;
+  }
+  
+
+
+
+  
+}
